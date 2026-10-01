@@ -35,7 +35,7 @@
                     <td><?php echo $ordem["cliente"]; ?></td>
                     <td><?php echo $ordem["equipamento"]; ?></td>
                     <td><?php echo $ordem["problema"]; ?></td>
-                    <td><?php echo $ordem["data"]; ?></td>
+                    <td><?php echo $ordem["data_entrada"]; ?></td>
                     <td><?php echo $ordem["status"]; ?></td>
                     <td>
                         <a href="editar.php?id=<?php echo $ordem["id"];?>">Editar</a> <!-- me permite pegar e editar os dados de um id que eu selecionar -->

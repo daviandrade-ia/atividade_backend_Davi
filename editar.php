@@ -1,9 +1,9 @@
 <?php
     include "config/conexao.php";
 
-    $id = intval($_GET[id]) //o intval garante que o id venha como numero inteiro
+    $id = intval($_GET["id"]);
 
-    $sql = "select * from ordens_servico where
+    $sql = "SELECT * FROM ordens_servico WHERE
             id = ?";
     
     $stmt = $conexao->prepare($sql);
@@ -15,7 +15,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
     <div class="container">
         <h1>Editar Ordem de Serviço</h1>
         <form action="atualizar.php" method="POST">
-            <input
+            <input 
                 type="hidden"
                 name="id"
                 value="<?php echo $ordem["id"];?>"
@@ -47,13 +47,14 @@
             >
             <label>Problema</label>
             <textarea name="problema" required>
-                <?php echo htmlspecialchars($ordem["problema"]);?>
+                <?php echo htmlspecialchars($ordem["problema"]);?>            
             </textarea>
-            <label>Data de Entrada</label>
+
+            <label>Data de entrada</label>
             <input
                 type="date"
                 name="data_entrada"
-                value="<?php echo $ordem["data_entrada"];?>"
+                value="<?php echo $ordem["data_entrada"]; ?>"
                 required
             >
             <label>Status</label>
@@ -63,7 +64,8 @@
                 <option value="Em manutenção">Em manutenção</option>
                 <option value="Concluído">Concluído</option>
             </select>
-            <button type="submit">atualizar</button>
+
+            <button type="submit">Atualizar</button>
         </form>
     </div>
 </body>

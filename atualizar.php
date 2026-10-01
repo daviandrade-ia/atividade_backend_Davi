@@ -1,5 +1,6 @@
 <?php
-    include "config/conexao.php"
+    include "config/conexao.php";
+
     $id = intval($_POST["id"]);
     $cliente = $_POST["cliente"];
     $equipamento = $_POST["equipamento"];
@@ -8,13 +9,15 @@
     $status = $_POST["status"];
 
     $sql = "UPDATE ordens_servico
-            SET cliente= ?,
+            SET cliente = ?,
                 equipamento = ?,
                 problema = ?,
                 data_entrada = ?,
                 status = ?
             WHERE id = ?";
-    $stmt = $conexao -> prepare($sql)
+
+    $stmt = $conexao -> prepare($sql);
+
     $stmt -> bind_param(
         "sssssi",
         $cliente,
@@ -30,5 +33,5 @@
         exit;
     } else {
         echo "Erro ao atualizar.";
-    }
+    }    
 ?>
